@@ -20,8 +20,6 @@ ALL_PRODUCTS = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardVarian
 # Verify search results are shown for expected_item
 @then("Verify search results are shown for {expected_item}")
 def verify_search_results(context, expected_item):
-    # actual_text = context.driver.find_element(*SEARCH_RESULT_HEADER).text
-    # assert expected_item in actual_text, f'Error! Text "{expected_item}" not in actual text "{actual_text}"'
     context.app.search_results_page.verify_search_results(expected_item)
 
 
@@ -31,11 +29,6 @@ def click_on_cart_product(context):
     context.wait.until(EC.element_to_be_clickable(BTN_ADD_TO_CART),
                        message='Button "Add to cart" does not work')
     context.driver.find_element(*BTN_ADD_TO_CART).click()
-    # add_cart_btns = context.driver.find_elements(*BTN_ADD_TO_CART)
-    # for btn in add_cart_btns:
-    #     btn.click()
-    #     context.driver.find_element(*BTN_CONFIRM_ADD_TO_CART).click()
-    #     context.driver.find_element(By.CSS_SELECTOR, "[aria-label='close']").click()
 
 
 # Confirm BTN "Add to cart"

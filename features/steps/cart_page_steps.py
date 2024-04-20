@@ -9,10 +9,6 @@ VERIFY_ITEM = (By.CSS_SELECTOR, "[class*='styles__CartSummarySpan-sc-odscpb-3']"
 # Verify cart is empty
 @then('Verify cart is empty')
 def verify_cart_is_empty(context):
-    # expected_result = 'Your cart is empty'
-    # actual_result = context.driver.find_element(By.XPATH, "//h1[text()='Your cart is empty']").text
-    # assert actual_result in expected_result, f"Error! {actual_result}"
-    # print("\nVerify cart is successful!")
     context.app.cart_page.verify_cart_is_empty()
 
 
