@@ -8,8 +8,7 @@ SEARCH_RESULT_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
 BTN_ADD_TO_CART = (By.CSS_SELECTOR, "[id*='addToCartButton']")
 BTN_CONFIRM_ADD_TO_CART = (By.CSS_SELECTOR, "[data-test='orderPickupButton']")
 VIEW_CART_BTN = (By.CSS_SELECTOR, "a[href='/cart']")
-SEARCH_INPUT = (By.ID, 'search')
-SEARCH_BTN = (By.CSS_SELECTOR, '[data-test*="SearchButton"]')
+
 
 # HW_5
 ITEM_PICTURES = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardImage/primary'] img")
@@ -21,16 +20,9 @@ ALL_PRODUCTS = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardVarian
 # Verify search results are shown for expected_item
 @then("Verify search results are shown for {expected_item}")
 def verify_search_results(context, expected_item):
-    actual_text = context.driver.find_element(*SEARCH_RESULT_HEADER).text
-    assert expected_item in actual_text, f'Error! Text "{expected_item}" not in actual text "{actual_text}"'
-
-
-# Search for product
-@when('Search for {item}')
-def search_product(context, item):
-    context.driver.find_element(*SEARCH_INPUT).send_keys(item)
-    context.driver.find_element(*SEARCH_BTN).click()
-    # sleep(6)
+    # actual_text = context.driver.find_element(*SEARCH_RESULT_HEADER).text
+    # assert expected_item in actual_text, f'Error! Text "{expected_item}" not in actual text "{actual_text}"'
+    context.app.search_results_page.verify_search_results(expected_item)
 
 
 # Click on BTN "Add to cart"

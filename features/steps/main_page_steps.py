@@ -8,12 +8,24 @@ CART_ICON = (By.CSS_SELECTOR, "use[href*='Cart.svg#Cart']")
 HEADER = (By.CSS_SELECTOR, "[class*='UtilityHeaderContainer']")
 HEADER_LINKS = (By.CSS_SELECTOR, "a[id*='utilityNav']")
 VERIFY_ITEM = (By.CSS_SELECTOR, "[class*='styles__CartSummarySpan-sc-odscpb-3']")
+SEARCH_INPUT = (By.ID, 'search')
+SEARCH_BTN = (By.CSS_SELECTOR, '[data-test*="SearchButton"]')
 
 
 # Open the Target main page
 @given('Open Target main page')
 def open_target(context):
-    context.driver.get('https://www.target.com/')
+    # context.driver.get('https://www.target.com/')
+    context.app.main_page.open_main()
+
+
+# Search for product
+@when('Search for {item}')
+def search_product(context, item):
+    # context.driver.find_element(*SEARCH_INPUT).send_keys(item)
+    # context.driver.find_element(*SEARCH_BTN).click()
+    # sleep(6)
+    context.app.header.search_product(item)
 
 
 @when('Open cart page')
@@ -27,7 +39,8 @@ def open_cart(context):
 # Click on cart
 @when('Click on cart')
 def click_cart(context):
-    context.driver.find_element(*CART_ICON).click()
+    # context.driver.find_element(*CART_ICON).click()
+    context.app.header.click_cart()
 
 
 # Verify header is shown

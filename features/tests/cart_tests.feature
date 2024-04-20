@@ -1,5 +1,6 @@
 Feature: Cart verify tests
 
+# HW_6
   Scenario: Verify cart is empty
     Given Open Target main page
     When Click on cart

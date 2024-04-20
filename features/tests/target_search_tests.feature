@@ -1,5 +1,11 @@
 Feature: Search verify tests
 
+  Scenario:
+    Given Open Target main page
+    When Search for coffee
+    Then Verify search results are shown for coffee
+
+
   Scenario Outline: User can search for a product
     Given Open Target main page
     When Search for <item>
