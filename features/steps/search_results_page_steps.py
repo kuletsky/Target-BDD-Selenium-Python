@@ -14,6 +14,7 @@ SEARCH_BTN = (By.CSS_SELECTOR, '[data-test*="SearchButton"]')
 # HW_5
 ITEM_PICTURES = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardImage/primary'] img")
 ITEM_NAMES = (By.CSS_SELECTOR, "[data-test='product-title']")
+ALL_PRODUCTS = (By.CSS_SELECTOR, "[class='styles__StyledDiv-sc-fw90uk-0 fHlewe']")
 
 
 # Verify search results are shown for expected_item
@@ -58,6 +59,7 @@ def click_on_cart_button(context):
 # a product name
 # a product image
 
+# version 1
 @then('Verify that every product has Name')
 def verify_that_product_has_name(context):
     sleep(8)
@@ -80,13 +82,12 @@ def verify_that_product_has_image(context):
 @then('Verify that every product has Name and Image')
 def verify_that_product_has_name_and_title(context):
 
-
-    all_products = context.driver.find_elements()
+    all_products = context.driver.find_elements(*ALL_PRODUCTS)
 
     for product in all_products:
-        name = product.find_element(*ITEM_NAMES).text
+        product = product.find_element(*ITEM_NAMES).text
 
-        assert name, f'Error! Item does not have Name'
+        assert product, f'Error! Item does not have Name'
         product.find_element(*ITEM_PICTURES)
 
 
