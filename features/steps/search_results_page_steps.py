@@ -13,8 +13,9 @@ SEARCH_BTN = (By.CSS_SELECTOR, '[data-test*="SearchButton"]')
 
 # HW_5
 ITEM_PICTURES = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardImage/primary'] img")
+PRODUCT_IMG = (By.CSS_SELECTOR, "[class*='ProductCardImage']")
 ITEM_NAMES = (By.CSS_SELECTOR, "[data-test='product-title']")
-ALL_PRODUCTS = (By.CSS_SELECTOR, "[class='styles__StyledDiv-sc-fw90uk-0 fHlewe']")
+ALL_PRODUCTS = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardVariantDefault']")
 
 
 # Verify search results are shown for expected_item
@@ -53,8 +54,8 @@ def click_on_cart_button(context):
                        message='Button "Confirm BTN" does not disappear')
 
 
-# ======================================================================
 # HW_5
+# ======================================================================
 # Verify that every product on Target search results page has:
 # a product name
 # a product image
@@ -81,14 +82,14 @@ def verify_that_product_has_image(context):
 # version 2
 @then('Verify that every product has Name and Image')
 def verify_that_product_has_name_and_title(context):
-
+    # sleep(8)
     all_products = context.driver.find_elements(*ALL_PRODUCTS)
-
     for product in all_products:
-        product = product.find_element(*ITEM_NAMES).text
 
-        assert product, f'Error! Item does not have Name'
-        product.find_element(*ITEM_PICTURES)
+        title = product.find_element(*ITEM_NAMES).text
+        print(title)
+        assert title, f'Error! Item does not have Name'
+        product.find_element(*PRODUCT_IMG)
 
 
 
