@@ -1,15 +1,16 @@
 Feature: Search verify tests
 
-  Scenario:
+  Scenario: User can search for a coffe
     Given Open Target main page
     When Search for coffee
     Then Verify search results are shown for coffee
-
+    And Verify that URL has coffee
 
   Scenario Outline: User can search for a product
     Given Open Target main page
     When Search for <item>
     Then Verify search results are shown for <expected_item>
+    And Verify that URL has <item>
     Examples:
     |item     |expected_item  |
     |cup      |cup            |

@@ -23,6 +23,12 @@ def verify_search_results(context, expected_item):
     context.app.search_results_page.verify_search_results(expected_item)
 
 
+# Verify that URL has coffee
+@then("Verify that URL has {partial_url}")
+def verify_search_page_url(context, partial_url):
+    context.app.search_results_page.verify_partial_url(partial_url)
+
+
 # Click on BTN "Add to cart"
 @when('Click on BTN "Add to cart"')
 def click_on_cart_product(context):
