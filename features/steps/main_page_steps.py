@@ -25,11 +25,11 @@ def search_product(context, item):
     context.app.header.search_product(item)
 
 
-@when('Open cart page')
-def open_cart(context):
-    context.driver.get('https://www.target.com/cart')
-    context.wait.until(EC.presence_of_element_located(VERIFY_ITEM),
-                       message='Cart is not open')
+# @when('Open cart page')
+# def open_cart(context):
+#     context.driver.get('https://www.target.com/cart')
+#     context.wait.until(EC.presence_of_element_located(VERIFY_ITEM),
+#                        message='Cart is not open')
 
 
 # Click on cart
@@ -50,5 +50,4 @@ def verify_header_links(context, expected_amount):
     expected_amount = int(expected_amount)
     links = context.driver.find_elements(*HEADER_LINKS)
     assert len(links) == expected_amount, f"Expected {expected_amount} links but got {len(links)}"
-
 

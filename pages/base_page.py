@@ -52,5 +52,5 @@ class Page:
     def verify_url(self, expected_url):
         self.wait.until(EC.url_contains(expected_url), message=f"URL does not contain {expected_url}")
 
-    def save_csreenshot(self, filename):
+    def save_screenshot(self, filename):
         self.driver.save_screenshot(f'{filename}.png')

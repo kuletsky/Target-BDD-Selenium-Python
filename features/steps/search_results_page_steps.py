@@ -5,8 +5,8 @@ from time import sleep
 
 
 # SEARCH_RESULT_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
-BTN_ADD_TO_CART = (By.CSS_SELECTOR, "[id*='addToCartButton']")
-BTN_CONFIRM_ADD_TO_CART = (By.CSS_SELECTOR, "[data-test='orderPickupButton']")
+# BTN_ADD_TO_CART = (By.CSS_SELECTOR, "[id*='addToCartButton']")
+# BTN_CONFIRM_ADD_TO_CART = (By.CSS_SELECTOR, "[data-test='orderPickupButton']")
 # VIEW_CART_BTN = (By.CSS_SELECTOR, "a[href='/cart']")
 
 
@@ -32,17 +32,21 @@ def verify_search_page_url(context, partial_url):
 # Click on BTN "Add to cart"
 @when('Click on BTN "Add to cart"')
 def click_on_cart_product(context):
-    context.wait.until(EC.element_to_be_clickable(BTN_ADD_TO_CART),
-                       message='Button "Add to cart" does not work')
-    context.driver.find_element(*BTN_ADD_TO_CART).click()
+    context.app.search_results_page.click_btn_add_to_cart()
+
+    # context.wait.until(EC.element_to_be_clickable(BTN_ADD_TO_CART),
+    #                    message='Button "Add to cart" does not work')
+    # context.driver.find_element(*BTN_ADD_TO_CART).click()
 
 
 # Confirm BTN "Add to cart"
 @when('Confirm BTN "Add to cart"')
-def click_on_cart_button(context):
-    context.driver.find_element(*BTN_CONFIRM_ADD_TO_CART).click()
-    context.wait.until(EC.invisibility_of_element(BTN_CONFIRM_ADD_TO_CART),
-                       message='Button "Confirm BTN" does not disappear')
+def click_on_confirm_button(context):
+    context.app.search_results_page.click_confirm_btn_add_to_cart()
+
+    # context.driver.find_element(*BTN_CONFIRM_ADD_TO_CART).click()
+    # context.wait.until(EC.invisibility_of_element(BTN_CONFIRM_ADD_TO_CART),
+    #                    message='Button "Confirm BTN" does not disappear')
 
 
 # HW_5
