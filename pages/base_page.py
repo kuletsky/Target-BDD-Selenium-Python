@@ -17,6 +17,24 @@ class Page:
     def click(self, *locator):
         self.find_element(*locator).click()
 
+    def wait_until_clickable_click(self, *locator):
+        self.wait.until(
+            EC.element_to_be_clickable(locator),
+            f'Element not clickable by {locator}'
+        ).click()
+
+    def wait_until_visible(self, *locator):
+        self.wait.until(
+            EC.visibility_of_element_located(locator),
+            f'Element not visible by {locator}'
+        )
+
+    def wait_until_disappears(self, *locator):
+        self.wait.until(
+            EC.invisibility_of_element_located(locator),
+            f'Element still visible by {locator}'
+        )
+
     def input_text(self, text, *locator):
         self.find_element(*locator).send_keys(text)
 
@@ -33,3 +51,6 @@ class Page:
 
     def verify_url(self, expected_url):
         self.wait.until(EC.url_contains(expected_url), message=f"URL does not contain {expected_url}")
+
+    def save_csreenshot(self, filename):
+        self.driver.save_screenshot(f'{filename}.png')

@@ -2,8 +2,8 @@ from pages.base_page import Page
 from pages.cart_page import CartPage
 from pages.header import Header
 from pages.main_page import MainPage
+from pages.side_navigation import SideNavigation
 from pages.search_results_page import SearchResultsPage
-
 
 
 class Application:
@@ -14,3 +14,4 @@ class Application:
         self.header = Header(driver)
         self.main_page = MainPage(driver)
         self.search_results_page = SearchResultsPage(driver)
+        self.side_navigation = SideNavigation(driver)

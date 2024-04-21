@@ -10,8 +10,8 @@ class Header(Page):
 
     def search_product(self, item):
         self.input_text(item, *self.SEARCH_INPUT)
-        self.click(*self.SEARCH_BTN)
+        self.wait_until_clickable_click(*self.SEARCH_BTN)
         sleep(6)
 
     def click_cart(self):
-        self.click(*self.CART_ICON)
+        self.wait_until_clickable_click(*self.CART_ICON)

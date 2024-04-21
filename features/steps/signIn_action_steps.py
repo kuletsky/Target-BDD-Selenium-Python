@@ -11,7 +11,8 @@ MENU_SIGNIN = (By.CSS_SELECTOR, "a[data-test='accountNav-signIn']")
 # Main page SignIn click
 @when('Main page SignIn click')
 def click_sign_in(context):
-    context.driver.find_element(*MAIN_SIGNIN).click()
+    # context.driver.find_element(*MAIN_SIGNIN).click()
+    context.app.header.wait_until_clickable_click(*MAIN_SIGNIN)
 
 
 # Side menu Sign In click
