@@ -4,10 +4,10 @@ from behave import then, when
 from time import sleep
 
 
-SEARCH_RESULT_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
+# SEARCH_RESULT_HEADER = (By.XPATH, "//div[@data-test='resultsHeading']")
 BTN_ADD_TO_CART = (By.CSS_SELECTOR, "[id*='addToCartButton']")
 BTN_CONFIRM_ADD_TO_CART = (By.CSS_SELECTOR, "[data-test='orderPickupButton']")
-VIEW_CART_BTN = (By.CSS_SELECTOR, "a[href='/cart']")
+# VIEW_CART_BTN = (By.CSS_SELECTOR, "a[href='/cart']")
 
 
 # HW_5

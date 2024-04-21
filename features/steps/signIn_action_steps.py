@@ -18,14 +18,16 @@ def click_sign_in(context):
 # Side menu Sign In click
 @when('Side menu SignIn click')
 def click_side_menu(context):
-    context.driver.find_element(*MENU_SIGNIN).click()
-    sleep(6)
+    context.app.side_navigation.side_nav_sign_in_click()
+    # context.driver.find_element(*MENU_SIGNIN).click()
+    # sleep(6)
 
 
-@then('Verify SignIn form is open')
+@then('Verify SignIn page is open')
 def verify_sign_in(context):
-    # Verification
-    expected_result = 'Sign into your Target account'
-    actual_result = context.driver.find_element(*SIGNIN).text
-    assert actual_result in expected_result, f"Error! {actual_result}"
-    print("\nVerify Sign In is successful!")
+    # context.app.
+    context.app.sign_in_page.verify_sign_in_page_is_open()
+    # expected_result = 'Sign into your Target account'
+    # actual_result = context.driver.find_element(*SIGNIN).text
+    # assert actual_result in expected_result, f"Error! {actual_result}"
+    # print("\nVerify Sign In is successful!")
