@@ -8,3 +8,10 @@ class TargetAppPage(Page):
 
     def open_target_app(self):
         self.open('https://www.target.com/c/target-app')
+
+    def click_pp_link(self):
+        self.click(*self.PP_Link)
+
+    def verify_pp_opened(self):
+        self.verify_partial_url('target-privacy-policy')
+

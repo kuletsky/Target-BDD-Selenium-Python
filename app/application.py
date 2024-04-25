@@ -5,6 +5,7 @@ from pages.main_page import MainPage
 from pages.side_navigation import SideNavigation
 from pages.sign_in_page import SignInPage
 from pages.search_results_page import SearchResultsPage
+from pages.target_app_page import TargetAppPage
 
 
 class Application:
@@ -17,3 +18,4 @@ class Application:
         self.search_results_page = SearchResultsPage(driver)
         self.sign_in_page = SignInPage(driver)
         self.side_navigation = SideNavigation(driver)
+        self.target_app_page = TargetAppPage(driver)
