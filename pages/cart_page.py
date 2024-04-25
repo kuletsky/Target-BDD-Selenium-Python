@@ -11,10 +11,8 @@ class CartPage(Page):
     def open_target_cart_page(self):
         self.driver.get("https://www.target.com/cart")
 
-
     def verify_cart_is_empty(self):
         self.verify_text('Your cart is empty', *self.EMPTY_CART_MSG)
-
 
     def verify_item_is_in_the_cart(self):
 
