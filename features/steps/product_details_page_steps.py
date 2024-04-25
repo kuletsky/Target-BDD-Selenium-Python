@@ -19,7 +19,6 @@ def verify_colors(context):
 
     expected_colors = ['dark khaki', 'black/gum', 'stone/grey', 'white/gum']
     actual_colors = []
-    # context.wait.until(EC.element_to_be_selected(COLOR_OPTIONS))
     colors = context.driver.find_elements(*COLOR_OPTIONS)
 
     for color in colors:

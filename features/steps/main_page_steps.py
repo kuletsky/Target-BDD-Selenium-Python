@@ -15,7 +15,6 @@ SEARCH_BTN = (By.CSS_SELECTOR, '[data-test*="SearchButton"]')
 # Open the Target main page
 @given('Open Target main page')
 def open_target(context):
-    # context.driver.get('https://www.target.com/')
     context.app.main_page.open_main()
 
 
@@ -23,13 +22,6 @@ def open_target(context):
 @when('Search for {item}')
 def search_product(context, item):
     context.app.header.search_product(item)
-
-
-# @when('Open cart page')
-# def open_cart(context):
-#     context.driver.get('https://www.target.com/cart')
-#     context.wait.until(EC.presence_of_element_located(VERIFY_ITEM),
-#                        message='Cart is not open')
 
 
 # Click on cart

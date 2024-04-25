@@ -34,19 +34,11 @@ def verify_search_page_url(context, partial_url):
 def click_on_cart_product(context):
     context.app.search_results_page.click_btn_add_to_cart()
 
-    # context.wait.until(EC.element_to_be_clickable(BTN_ADD_TO_CART),
-    #                    message='Button "Add to cart" does not work')
-    # context.driver.find_element(*BTN_ADD_TO_CART).click()
-
 
 # Confirm BTN "Add to cart"
 @when('Confirm BTN "Add to cart"')
 def click_on_confirm_button(context):
     context.app.search_results_page.click_confirm_btn_add_to_cart()
-
-    # context.driver.find_element(*BTN_CONFIRM_ADD_TO_CART).click()
-    # context.wait.until(EC.invisibility_of_element(BTN_CONFIRM_ADD_TO_CART),
-    #                    message='Button "Confirm BTN" does not disappear')
 
 
 # HW_5
@@ -85,10 +77,3 @@ def verify_that_product_has_name_and_title(context):
         print(title)
         assert title, f'Error! Item does not have Name'
         product.find_element(*PRODUCT_IMG)
-
-
-
-# Click BTN view cart
-# @when('Click BTN view cart')
-# def click_on_view_button(context):
-#     context.driver.find_element(*VIEW_CART_BTN).click()
