@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 
 from app.application import Application
@@ -23,6 +24,18 @@ def browser_init(context):
     context.wait = WebDriverWait(context.driver, 15)
 
     context.app = Application(context.driver)
+
+    ### HEADLESS MODE ###
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # service = Service(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(
+    #     options=options,
+    #     service=service
+    # )
+
+    ### BROWSERSTACK ###
+
 
 
 def before_scenario(context, scenario):
