@@ -45,9 +45,10 @@ def browser_init(context, scenario_name):
 
     options = Options()
     bstack_options = {
-        'osVersion': '13.0',
-        'deviceName': 'Samsung Galaxy S23',
-        'browserName': 'chrome',
+        'os': 'Windows',
+        'osVersion': '11',
+        # 'deviceName': 'iPhone 13',
+        'browserName': 'Edge',
         'sessionName': scenario_name
     }
     options.set_capability('bstack:options', bstack_options)
