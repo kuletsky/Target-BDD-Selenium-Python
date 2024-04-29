@@ -9,3 +9,9 @@ Feature: Tests for help page
     And Verify Grid has 7 links
     And Verify Another Grid has 2 links
     And Verify header "Browse" is displayed
+
+  Scenario: User can select Help topic
+    Given Open Help page for Returns
+    Then Verify Returns page opened
+    When Select Help topic Promotions & Coupons
+    Then Verify Current promotions page opened

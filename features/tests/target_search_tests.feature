@@ -31,3 +31,10 @@ Feature: Search verify tests
     Given Open Target main page
     When Search for TV
     Then Verify that every product has Name and Image
+
+  # User can see favorites tootlip for search results
+  Scenario: User can see favorites tootlip for search results
+    Given Open Target main page
+    When Search for pen
+    And Hover favorites icon
+    Then Favorites tooltip is shown

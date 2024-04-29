@@ -17,6 +17,16 @@ ITEM_NAMES = (By.CSS_SELECTOR, "[data-test='product-title']")
 ALL_PRODUCTS = (By.CSS_SELECTOR, "[data-test='@web/ProductCard/ProductCardVariantDefault']")
 
 
+@when('Hover favorites icon')
+def click_fav_icon(context):
+    context.app.search_results_page.hover_fav_icon()
+
+
+@then('Favorites tooltip is shown')
+def verify_fav_tooltip(context):
+    context.app.search_results_page.verify_fav_tooltip()
+
+
 # Verify search results are shown for expected_item
 @then("Verify search results are shown for {expected_item}")
 def verify_search_results(context, expected_item):

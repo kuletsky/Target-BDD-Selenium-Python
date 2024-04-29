@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from behave import given, then
+from behave import given, then, when
 
 
 HEADER_HELP = (By.CSS_SELECTOR, "[class='custom-h2']")
@@ -54,3 +54,23 @@ def verify_another_grid_has_expected_amount(context, expected_amount):
 @then('Verify header "Browse" is displayed')
 def verify_browse_is_displayed(context):
     context.driver.find_element(*HEADER_BROWSE)
+
+
+@given('Open Help page for Returns')
+def open_help_returns(context):
+    context.app.help_page.open_help_returns()
+
+
+@when('Select Help topic Promotions & Coupons')
+def select_topic(context):
+    context.app.help_page.select_topic()
+
+
+@then('Verify Current promotions page opened')
+def verify_promotions_opened(context):
+    context.app.help_page.verify_promotions_header()
+
+
+@then('Verify Returns page opened')
+def verify_returns_page_opened(context):
+    context.app.help_page.verify_returns_header()
