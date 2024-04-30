@@ -14,4 +14,3 @@ class TargetAppPage(Page):
 
     def verify_pp_opened(self):
         self.verify_partial_url('target-privacy-policy')
-

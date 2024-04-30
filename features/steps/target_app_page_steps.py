@@ -21,7 +21,7 @@ def switch_window(context):
     context.app.target_app_page.switch_to_new_window()
 
 
-@then('Verify Privacy Policy page opened')
+@then('Verify Privacy Policy page open')
 def verify_pp_opened(context):
     context.app.target_app_page.verify_pp_opened()
 

@@ -6,6 +6,6 @@ Feature: Tests for Target App page
     And Store original window
     When Click Privacy Policy Link
     And Switch to new window
-    Then Verify Privacy Policy page opened
+    Then Verify Privacy Policy page open
     And Close current page
     And Return to original window

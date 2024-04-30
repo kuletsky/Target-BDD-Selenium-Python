@@ -61,16 +61,11 @@ def open_help_returns(context):
     context.app.help_page.open_help_returns()
 
 
-@when('Select Help topic Promotions & Coupons')
-def select_topic(context):
-    context.app.help_page.select_topic()
+@when('Select Help topic {option}')
+def select_topic(context, option):
+    context.app.help_page.select_topic(option)
 
 
-@then('Verify Current promotions page opened')
-def verify_promotions_opened(context):
-    context.app.help_page.verify_promotions_header()
-
-
-@then('Verify Returns page opened')
-def verify_returns_page_opened(context):
-    context.app.help_page.verify_returns_header()
+@then('Verify {header} page opened')
+def verify_returns_opened(context, header):
+    context.app.help_page.verify_header(header)
