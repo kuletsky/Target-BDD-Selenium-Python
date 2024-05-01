@@ -61,6 +61,11 @@ def verify_sign_in_success(context):
     context.app.sign_in_page.verify_sign_in_page_is_successful()
 
 
+@then('Verify SignIn is unsuccessful')
+def verify_sign_in_unsuccessful(context):
+    context.app.sign_in_page.verify_sign_in_page_is_unsuccessful()
+
+
 # Verify Terms and Conditions page is opened
 @then('Verify Terms and Conditions page is opened')
 def verify_terms_and_conditions_page(context):

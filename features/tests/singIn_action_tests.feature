@@ -25,3 +25,12 @@ Feature: SignIn verify tests
     And Switch to the newly opened window
     Then Verify Terms and Conditions page is opened
     And Verify User can close new window and switch back to original
+
+  # HW_9 Verify unsuccessful login with invalid credentials
+  Scenario: Verify unsuccessful login with invalid credentials
+    Given Open Target main page
+    When Main page SignIn click
+    And Side menu SignIn click
+    And Fill in the audids@boranora.com and qwf121132re fields
+    And Click the Sign In
+    Then Verify SignIn is unsuccessful

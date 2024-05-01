@@ -6,6 +6,7 @@ from time import sleep
 # HW_6
 class SignInPage(Page):
     SIGNIN = (By.XPATH, "//span[text()='Sign into your Target account']")
+    UNVALID = (By.CSS_SELECTOR, "[data-test='authAlertDisplay']")
     USERNAME = (By.ID, "username")
     PASSWORD = (By.ID, "password")
     LOGIN = (By.ID, "login")
@@ -31,6 +32,9 @@ class SignInPage(Page):
 
     def verify_sign_in_page_is_successful(self):
         self.wait_until_disappears(*self.SIGNIN)
+
+    def verify_sign_in_page_is_unsuccessful(self):
+        self.verify_text('Your account is locked. Please click on forgot password link to reset.', *self.UNVALID)
 
     def verify_tm_opened(self):
         self.verify_partial_url('terms-conditions')
