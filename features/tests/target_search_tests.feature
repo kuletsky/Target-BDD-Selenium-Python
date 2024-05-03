@@ -19,7 +19,8 @@ Feature: Search verify tests
     |flower   |flower         |
 
 
-    #HW_5
+  #HW_5
+  @smoke
   Scenario: Every product has Name and Image
     Given Open Target main page
     When Search for TV

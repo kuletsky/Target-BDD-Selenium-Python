@@ -8,6 +8,7 @@ Feature: SignIn verify tests
 
 
   # HW_7 Verify successful login with valid credentials
+  @smoke
   Scenario: Verify successful login with valid credentials
     Given Open Target main page
     When Main page SignIn click
