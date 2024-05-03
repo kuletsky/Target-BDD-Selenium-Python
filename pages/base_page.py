@@ -1,6 +1,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from support.logger import logger
+
 
 class Page:
 
@@ -10,38 +12,46 @@ class Page:
 
     def open(self, url):
         self.driver.get(url)
+        logger.info(f"Opening {url}")
 
     def close(self):
         self.driver.close()
 
     def find_element(self, *locator):
+        logger.info(f"Searching by {locator}")
         return self.driver.find_element(*locator)
 
     def find_elements(self, *locator):
+        logger.info(f"Searching by {locator}")
         return self.driver.find_elements(*locator)
 
     def click(self, *locator):
+        logger.info(f"Clicking by {locator}")
         self.find_element(*locator).click()
 
     def wait_until_clickable_click(self, *locator):
+        logger.info(f"Waiting until clickable by {locator}")
         self.wait.until(
             EC.element_to_be_clickable(locator),
             f'Element not clickable by {locator}'
         ).click()
 
     def wait_until_visible(self, *locator):
+        logger.info(f"Waiting until visible by {locator}")
         self.wait.until(
             EC.visibility_of_element_located(locator),
             f'Element not visible by {locator}'
         )
 
     def wait_until_disappears(self, *locator):
+        logger.info(f"Waiting until disappears by {locator}")
         self.wait.until(
             EC.invisibility_of_element_located(locator),
             f'Element still visible by {locator}'
         )
 
     def input_text(self, text, *locator):
+        logger.info(f"Input text by {locator}")
         self.find_element(*locator).send_keys(text)
 
     def get_current_window(self):
@@ -58,16 +68,18 @@ class Page:
         self.driver.switch_to.window(all_windows[1])
 
     def switch_to_window_by_id(self, window_id):
+        logger.info(f"Switching to window by id: {window_id}")
         print('Switching to ...', window_id)
         self.driver.switch_to.window(window_id)
 
     def verify_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
-        print(actual_text, expected_text)
+        logger.info(f"Verifying {actual_text} = {expected_text}")
         assert actual_text == expected_text, f'Expected {expected_text}, but got {actual_text}'
 
     def verify_partial_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
+        logger.info(f"Verifying partial {expected_text} = {actual_text}")
         assert expected_text in actual_text, f'Expected {expected_text}, not in {actual_text}'
 
     def verify_partial_url(self, expected_partial_url):
