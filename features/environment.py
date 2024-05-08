@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.chrome.options import Options
 
 from app.application import Application
 from support.logger import logger
@@ -12,16 +13,15 @@ def browser_init(context, scenario_name):
     :param scenario_name:
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
 
+    ### CHROME ###
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+
+    ### FIREFOX ###
     # driver_path = GeckoDriverManager().install()
     # service = Service(driver_path)
-    # context.driver = webdriver.Firefox(service=service)
-
-    ### BROWSERS WITH DRIVERS: provide path to the driver file ###
-    # service = Service(executable_path='/Users/svetlanalevinsohn/careerist/18-python-selenium-automation/geckodriver')
     # context.driver = webdriver.Firefox(service=service)
 
     ### SAFARI ###
@@ -37,21 +37,21 @@ def browser_init(context, scenario_name):
     # )
 
 
-    ### BROWSERSTACK ###
-    # bs_user = 'kuletsky_D18EAl'
-    # bs_key = 'cjrUnYqkUDR8xPwnqxXj'
-    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #     'os': 'Windows',
-    #     'osVersion': '11',
-    #     # 'deviceName': 'iPhone 13',
-    #     'browserName': 'Edge',
-    #     'sessionName': scenario_name
-    # }
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
+    ## BROWSERSTACK ###
+    bs_user = 'kuletsky_D18EAl'
+    bs_key = 'cjrUnYqkUDR8xPwnqxXj'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        'os': 'Windows',
+        'osVersion': '11',
+        # 'deviceName': 'iPhone 13',
+        'browserName': 'Edge',
+        'sessionName': scenario_name
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(6)

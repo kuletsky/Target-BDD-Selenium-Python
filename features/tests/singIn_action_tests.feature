@@ -13,7 +13,7 @@ Feature: SignIn verify tests
     Given Open Target main page
     When Main page SignIn click
     And Side menu SignIn click
-    And Fill in the audids@boranora.com and ********* fields
+    And Fill in the audids@boranora.com and qwertyuiop[]\ fields
     And Click the Sign In
     Then Verify SignIn is successful
 
