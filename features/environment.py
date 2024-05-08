@@ -47,7 +47,7 @@ def browser_init(context, scenario_name):
         'os': 'Windows',
         'osVersion': '11',
         # 'deviceName': 'iPhone 13',
-        'browserName': 'Edge',
+        'browserName': 'Chrome',
         'sessionName': scenario_name
     }
     options.set_capability('bstack:options', bstack_options)
