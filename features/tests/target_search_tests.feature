@@ -1,5 +1,6 @@
 Feature: Search verify tests
 
+  @smoke
   Scenario: User can search for a coffe
     Given Open Target main page
     When Search for coffee

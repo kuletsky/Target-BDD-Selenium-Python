@@ -12,7 +12,7 @@ Feature: Cart verify tests
   @smoke
   Scenario: Verify item is in the cart
     Given Open Target main page
-    When Search for pen
+    When Search for soap
     And Click on BTN "Add to cart"
     And Confirm BTN "Add to cart"
     And Open Target Cart page
