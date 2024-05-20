@@ -49,6 +49,7 @@ coverage.xml
 
 # PyBuilder
 target/
+mobile_app/
 
 # pyenv
 .python-version
