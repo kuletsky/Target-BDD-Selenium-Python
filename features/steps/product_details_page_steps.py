@@ -5,7 +5,7 @@ from time import sleep
 
 
 COLOR_OPTIONS = (By.CSS_SELECTOR, "[data-io-v='full'] img")
-SELECTED_COLOR = (By.CSS_SELECTOR, "[class] [data-test='\@web\/VariationComponent']:nth-of-type(2) [class='styles__StyledHeaderWrapperDiv-sc-tezx2e-1 jWgzho']")
+SELECTED_COLOR = (By.CSS_SELECTOR, "[class] [data-test='web\VariationComponent']:nth-of-type(2) [class='styles__StyledHeaderWrapperDiv-sc-tezx2e-1 jWgzho']")
 
 
 @given('Open Target product {} page')
